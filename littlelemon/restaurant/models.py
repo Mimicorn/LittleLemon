@@ -3,7 +3,7 @@ from django.core.validators import MinValueValidator
 
 # Create your models here.
 class Booking(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, null=False, blank=False)
     no_of_guests = models.PositiveIntegerField(default=1, validators=[MinValueValidator(1)])
     booking_date = models.DateField(null=False, blank=False, db_index=True)
     
