@@ -16,13 +16,13 @@ class Booking(models.Model):
 class Menu(models.Model):
     title = models.CharField(max_length=255, null=False, blank=False, db_index=True)
     price = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(0)], db_index=True)
-    inventory = models.PositiveIntegerField(default=0, db_index=True)
+    inventory = models.PositiveSmallIntegerField(default=0, db_index=True)
     
     class Meta:
         ordering = ['title']
         
     def __str__(self):
-        return self.title
+        return(f"{self.title} : {self.price}")
 
 
     
