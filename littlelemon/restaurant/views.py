@@ -12,7 +12,7 @@ def index(request):
 
 class MenuItemView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
-    queryset = Menu.objects.all()
+    queryset = Menu.objects.all().order_by('id')
     serializer_class = MenuSerializer
     
 #    def get(self, request, *args, **kwargs):
