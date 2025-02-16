@@ -8,7 +8,7 @@ class MenuTest(TestCase):
     
     def test_update_item(self):
         item = Menu.objects.create(title='Greek salad', price=7.5, inventory=30)
-        count = Menu.objects.filter(title__icontains='Greek salad').update(price=6)
+        Menu.objects.filter(title__icontains='Greek salad').update(price=6)
         item = Menu.objects.get(title='Greek salad')
         self.assertEqual(item.price, 6)
         
